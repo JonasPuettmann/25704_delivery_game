@@ -33,11 +33,12 @@ func _physics_process(delta):
 		#print(jump_height)
 		if jump_height < MAX_JUMP_VELOCITY:
 			jump_height = MAX_JUMP_VELOCITY
-		if jump_height > -200:
-			jump_height = -200
+		if jump_height > -350:
+			jump_height = -350
 	
-	if Input.is_action_just_released("ui_accept") and is_on_floor() or Input.is_action_just_released("ui_accept")and floor_timer > 0:
+	if Input.is_action_just_released("ui_accept") and is_on_floor() or Input.is_action_just_released("ui_accept") and floor_timer > 0:
 		velocity.y = jump_height
+		anim.play("jumping")
 		jump_height = 0
 		floor_timer = 0
 
